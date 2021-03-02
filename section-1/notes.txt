@@ -1,0 +1,36 @@
+SECTION 1: AWS CLOUDFORMATION INTRODUCTION
+
+WHAT IS CLOUDFORMATION:
+    is a declarative way of outlining your AWS infrastructure, for any resources (most of them are supported)
+    For example, within a cloud formation template, you say:
+        I want a security group
+        I want to EC2 machines using the security group
+        I want to elastic IP's for these EC2 machines
+        I want an S3 bucket
+        I want a load balancer in front of these machines
+        Then cloud formation creates those for you, in the right order, with the exact configuration that you specify
+
+BENEFITS OF AWS CLOUDFORMATION:
+Infrastructure as Code
+    No resources are manually created, which is excellent for control
+    The code can be version controlled for example using git
+    Changes to the infrastructure are reviewed through Code
+
+Cost
+    Each resources within the stack is tagged with an identifier so you can easily see how much a stack cost you
+    You can estimate the cost of your resources using the cloud formation template
+    Saving strategy: in Dev, you can automate deletion of templates at 5 PM and re-create at 8 AM, safely
+
+Productivity 
+    Ability to destroy and re-create an infrastructure on the cloud on the fly
+    Automated generation of diagram for your templates
+    Declarative programming (no need to figure out ordering and orchestration)
+
+Separation of concern: create money stacks for many apps, and many layers. Example:
+    VPC stacks
+    Networks stacks
+    Application stacks
+
+Don't reinvent the wheel:
+    Leverage existing templates on the web
+    Leverage the documentation
