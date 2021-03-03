@@ -1,0 +1,7 @@
+Section 6: Cloudformation Outputs
+	What are outputs?
+		-The outputs section declares optional output value that we can import into our stacks
+		-You can always view the outputs in the AWS console or in using the AWS CLI
+		-They are very useful for example if you define a Network cloud configuration, 	 and output the variable such as the VPC ID and your subnet IDs
+		-It’s the best way to perform some collaboration across stack, as you let experts handle their own part of the stack
+
