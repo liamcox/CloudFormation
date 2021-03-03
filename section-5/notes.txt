@@ -1,0 +1,31 @@
+Section 5: CloudFormation mappings
+
+What are mappings?
+	-Mappings are fixed variables within your cloud formation template.
+	-They are very handy to differentiate between different environments (dev vs prod), 			regions (AWS regions, AMI types, etc
+	-All the values are hardcoded within the template
+
+When would you use mappings vs parameters?
+	-Map things are great when you know in advance all the values that can be taken and 			that they can be deduced from variables such as
+		-Region
+		-Availability Zone
+		-AWS Account
+		-Environment (dev vs prod)
+		-etc…
+	-They allow safer control over the template
+	-Use parameters when the values are really user specific
+
+Fn:: FindInMap, accessing mapping values
+	We use Fn:: FindInMap to return a named value from a specific key
+	!FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
+
+Concept: pseudo parameters:
+	AWS offers pseudo parameters in any cloud formation template
+	These can be used at any time and are enabled by default
+	Examples:
+		AWS::AcountId: 12345678
+		AWS::NotificationARNs: [arn:aws:sns:us-east-1:123456789012:MyTopic ]
+		AWS::NoValue: Does not return a value
+		AWS::Region: us-east-2
+		AWS::StackId: returns the stack id
+		AWS::StackName: MyStack
