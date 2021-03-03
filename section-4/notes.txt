@@ -1,0 +1,14 @@
+Section 4: CloudFormation Resources
+
+What are resources?
+	-Resources are the core of your cloud formation template
+	-They represent the different AWS components that will be created and configured
+	-Resources are declared and can reference each other
+	-AWS figures out creation, updates and deletes resources for us
+	-There are over 224 types of resources
+	-Resource type identifiers are of the form:
+		“AWS::aws-product-name::dta-type-name”
+
+How do I find resource documentation
+	-Google the product name documentation
+	-When you're in the designer, drag and drop the resource you want to use. Then right click on the resource and hit the documentation icon
