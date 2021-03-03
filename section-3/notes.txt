@@ -1,0 +1,35 @@
+Section 3: CloudFormation Parameters
+
+What are parameters?
+	-Parameters are way to provide inputs to your AWS cloud formation template
+	-They are important to know about if:
+		-Do you want to reuse your templates across the company
+		-Some inputs cannot be determined ahead of time
+	-Parameters are extremely powerful, controlled, and can prevent errors from happening 			in your templates thanks to types.	
+
+When should you use a parameter?
+	-Ask yourself this:
+		-Is this cloud formation resource configuration likely to change in the future?
+		-If so, make it a parameter
+	-You won't have to re-upload a template to change its content
+
+
+Parameters theory and hands-on:
+	Parameters can be controlled by all these settings:
+		1.Type:
+			-String
+			-Number
+			-CommaDelimitedList
+			-List<Type>
+			-AWS Parameter
+		2.Description
+		3.Constraints
+		4.ConstraintDescription (String)
+		5.Min/maxLength
+		6.Min/MaxValue
+		7.Defaults
+		8.AllowedValues (array)
+		9.AllowedPattern (regexp)
+		10.NoEcho (Boolean)
+
+    To Reference elements within the template use !Ref
