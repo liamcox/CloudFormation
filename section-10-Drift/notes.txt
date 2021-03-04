@@ -1,0 +1,11 @@
+Section 10: Cloudformation Drift:
+
+	What is Drift?
+		-Cloud formation allows you to create infrastructure
+		-But it doesn't protect you against manual configuration changes
+		-How do we know if our resources have drifted? We can use cloud formation 		drift
+
+    How it can be implementated:
+        -Can be used to see how resources have been manually changed
+        -Can manually change resources and then check the code and copy paste it into your template
+        -Its more of an audit and can't prevent manual changes from happening.
