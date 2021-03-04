@@ -1,0 +1,53 @@
+Section 9: Cloudformation CFN-Init
+
+	-Many of the cloud formation templates will be about provisioning computing resources 	in your AWS cloud
+	-These resources can be either:
+		EC2 instances
+		AutoScaling Groups
+	-Usually, do you want the instances to be self configured so they perform the job they 			are supposed to perform
+	-You can fully automate your EC to fleet state with cloud formation Init
+
+	Cloud formation helper Scripts:
+		-We have four python script, that come directly on Amazon Linux AMI, or can be 		installed using Yum on non-Amazon Linux
+			1.cfn-init: used to retrieve and interpret the resource meta-data, installing 			packages, creating files and starting services.
+			2.cfn-signal: a simple wrapper to signal in AWS cloudformation 						CreationPolicy or WaitCondition, enabling you to synchronize other 					resources in the stack with the application being ready.
+			3.cfn-get-metadata: a wrapper script making it easy to retrieve either all 					metadata defined for a resource or path to a specific key or sub three of 					the resource metadata.
+			4.cfn-hup: A daemon to check for updates to metadata and execute 					custom hooks when the changes are detected.
+		-Usual flow: cfn-init, then con-signal, then optionally cfn-hup
+
+	Configs:
+	-A config contains the following and is executed in that order:
+		1.Packages: install a list of packages on the Linux OS (mysql, Wordpress, etc…)
+		2.Groups: define user groups
+		3.Users: define users, and which group they belong to
+		4.Sources: download an archive file and place it on the EC2 instance(tar,zip,bz2)
+		5.Files: create files on the EC two instance, using in-line or can be pulled from 				URL
+		6.Commands: run a series of commands
+		7.Services: launch a list of sysvinit
+
+	Packages:
+		-You can install packages from the following repositories: 							apt,msi,python,rpm,rubygems, and yum
+		-Packages are processed in the following order: rpm,yem/apt, and then ruby 				gems and python
+		-You can specify version, or no version (empty array - means latest)
+
+	Groups and Users:
+		-reference lines 42–47 in code for an example of groups and users
+
+	Sources:
+		-We can download all compressed archives from the web and unpack them on 				the instance directly.
+		-It’s very handy if you have a set of standardized Scripts for your instances that 				you store in S3
+		-Or if you want to download a whole github project directly on your instance
+
+	Files:
+		-Files are very powerful as you have full control over any contact you want.
+		-They can come from a specific URL or be written inline
+
+	Fn::Sub:
+		-!Sub as a short hand, is used to substitute variables from a text. It's a very 				handy function that will allow you to fully customize your templates.
+		-For example, you can combines Fn::Sub with references or AWS pseudo-				variables
+		-String must contain ${VariableName} and will substitute them
+
+	Commands:
+		-You can run commands one at a time in alphabetical order
+		-You can set a directory from which the command is run, environment variables
+		-You can provide a task to control whether the command is executed or not 				(example test: if a file does not exist, command: the download command)
