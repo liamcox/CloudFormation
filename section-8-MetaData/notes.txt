@@ -1,0 +1,15 @@
+Section 8: Cloudformation MetaData
+
+	What is metadata?
+		-you can use the optional meta-data section to include arbitrary Yaml that provide details about the template or resource
+		
+	Special metadata keys:
+		-there are three metadata keys that have special meaning:
+			1.AWS::CloudFormation::Designer : describes how the resources are 			laid out in your template. This is automatically added by the AWS designer.
+			2.AWS::CloudFormation::Interface : define grouping and ordering of input 	parameters when they are displayed in the AWS console.
+			3.AWS::CloudFormation::Init: define configuration tasks for cfn-init. It's 	the most powerful usage of the metadata
+
+    AWS::CloudFormation::Interface Hands On: 
+        - Define grouping and ordering of input parameters when they are displayed in the AWS console
+        - This is meant when users must input template parameters manually
+        - You provide them with grouping, or sorting, that allows them to input parameters efficiently.

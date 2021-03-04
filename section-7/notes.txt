@@ -1,9 +1,0 @@
-Section 7: Cloudformation Conditions
-
-	What are conditionals used for?
-		-Conditionals are used to control the creation of resources or outputs based on 				the condition.
-		-Conditions can be whatever you want them to be, but common ones are:
-			-Environment (dev / test / prod )
-			-AWS Region
-			-Any parameter value
-		-Each condition can reference another condition, perimeter, value or mapping

@@ -5,3 +5,7 @@ Section 6: Cloudformation Outputs
 		-They are very useful for example if you define a Network cloud configuration, 	 and output the variable such as the VPC ID and your subnet IDs
 		-It’s the best way to perform some collaboration across stack, as you let experts handle their own part of the stack
 
+	Cross stack reference hands on
+		-We then create a second template that leverages the security group
+		-For this, we use the Fn::ImportValue function
+		-You can't delete the underlined stack until all the references are deleted too
